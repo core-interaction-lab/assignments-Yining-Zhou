@@ -26,7 +26,7 @@ html {
 .topnav a {
   float: left;
   display: block;
-  color: #411212;
+  color: hsla(5, 85%, 15%, 1);
   text-align: center;
   padding: 18px 22px;
   text-decoration: none;
