@@ -9,6 +9,21 @@ html {
    padding: 1.5rem;
 }
 
+.topnav {
+  overflow: hidden;
+  background-color: rgba(107, 8, 8, 0.507);
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #411212;
+  text-align: center;
+  padding: 18px 22px;
+  text-decoration: none;
+}
+
 .header {
     padding: 10px;
     text-align: center;
@@ -49,6 +64,7 @@ h2, h3, h4, h5, h6 {
   h4 {
     font-size:1.5rem;
     margin-bottom:1rem;
+    color: hsla(360, 100%, 100%, 1);
   }
   
   h5 {
