@@ -10,8 +10,47 @@ html {
    padding: 1.5rem;
 }
 
+
+.header {
+  padding: 10px;
+  text-align: center;
+  background: hsla(360, 100%, 36%, 0.42);
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(107, 8, 8, 0.507);
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #411212;
+  text-align: center;
+  padding: 18px 22px;
+  text-decoration: none;
+}
+
+.card {
+  background-color: hsla(360, 100%, 36%, 0.42);
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fakeimg {
+  width: 100%;
+  padding: 20px;
+}
+
 body {
-    background-image: url(/images/bkground1.jpg);
+    background-image: url(/images/background2.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -24,14 +63,16 @@ h2, h3, h4, h5, h6 {
   }
   
   h1 {
-    font-size:6rem;
+    font-size:5rem;
     margin-bottom:1.25rem;
     font-family: 'Shizuru', cursive;
+    color: hsla(360, 100%, 100%, 1);
   }
   
   h2 {
     font-size:3.25rem;
     margin-bottom:1.25rem;
+    color: hsla(360, 100%, 100%, 1);
   }
   
   h3 {
@@ -52,6 +93,7 @@ h2, h3, h4, h5, h6 {
   
   p{
     font-family: 'Prompt', sans-serif;
+    color: hsla(360, 100%, 100%, 1);
 
 
-  }
+ }
