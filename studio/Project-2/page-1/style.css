@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&family=Sancreek&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&family=Sancreek&family=Syne+Mono&display=swap');
+
+h1 {
+  font-size:80px ;
+  font-family:'Sancreek', cursive;
+  color: rgba(20, 20, 20, 0.644);
+  text-align: center;
+  position: relative; 
+  text-align: center;
+  letter-spacing: 2rem;
+  padding: 50px;
+}
+
+h2 {
+  font-size:96px ;
+  font-family:'Sancreek', cursive;
+  color: rgb(78, 78, 78);
+  text-align: center;
+}
+
+h3 {
+  font-size:36px ;
+  font-family:'Sancreek', cursive;
+}
+
+h4 {
+  font-size: 24spx;
+  font-family: 'Sancreek', cursive;
+  text-align: left;
+  padding: 10px;
+  color: white;
+}
+body {
+  background-color: black;
+}
+
+.container {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+ 
+    background-color: rgb(48, 48, 48);
+    height: fit-content;
+    text-align: center;
+    padding-left: 30px;
+}
+span {
+  font-size:200px ;
+  font-family:'Sancreek', cursive;
+  color: rgb(48, 48, 48);
+  filter: blur(6px);
+  animation: animate 3s linear infinite;
+  text-align:center;
+  padding: 3.5px;
+}
+@keyframes animate{
+    0%,100%{
+        color: rgb(255, 255, 255);
+        filter: blur(2px);
+        text-shadow: 0 0 10px white,
+        0 0 20px white,
+        0 0 30px white,
+        0 0 40px white,
+        0 0 100px white,
+        0 0 200px white,
+        0 0 400px rgb(255, 255, 255),
+        
+    }
+    13%,95% {
+        color: rgb(46, 46, 46);
+        filter: blur(8px);
+    }
+}
+span:nth-child(1){
+    animation-delay: 0s;
+}
+span:nth-child(2){
+    animation-delay: 0.3s;
+}
+span:nth-child(3){
+    animation-delay: 0.6s;
+}
+span:nth-child(4){
+    animation-delay: 0.9s;
+}
+span:nth-child(5){
+    animation-delay: 9s;
+}
+span:nth-child(6){
+    animation-delay: 1.5s;
+}
+span:nth-child(7){
+    animation-delay: 1.8s;
+}
+span:nth-child(8){
+    animation-delay: 2.1s;
+}
+span:nth-child(9){
+    animation-delay: 2.4s;
+}
+span:nth-child(10){
+    animation-delay: 2.25s;
+}
+span:nth-child(11){
+    animation-delay: 2.5s;
+}
+span:nth-child(12){
+    animation-delay: 3s;
+}
+
+body {
+    margin: 0cm;
+    padding: 0px;
+}
+
+ul {
+    position:fixed;
+    margin-bottom: 0%;
+    transform: translate(-20%, -20%);
+    margin: 0;
+    padding: 150px;
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 20px;
+    margin: 0 50px;
+    background: rgb(94, 94, 94);
+    border-radius: 50%;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+ul li:hover{
+    background: black;
+    box-shadow: 0 0 30px rgb(255, 255, 255);
+}
