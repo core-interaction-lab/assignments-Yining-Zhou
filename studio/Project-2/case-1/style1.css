@@ -8,12 +8,19 @@ body {
 }
 
 .header {
-    padding: 0px;
-    text-align: right;
-    margin-right: 20px;
-    margin-top: 20px;
+    padding: 9px;
+    text-align: center;
+    margin-top: 30px; 
+    display: inline;
+    
 }
-
+.case {
+    padding: 0px;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    display: inline;
+}
 h1 {
     font-size:24px ;
     font-family:'Sancreek', cursive;
@@ -26,6 +33,14 @@ h2 {
   font-family: 'Syne Mono', monospace;
   color: rgba(236, 236, 236, 0.548);
 }
+
+h3 {
+    font-size:24px ;
+    font-family:'Sancreek', cursive;
+    color: rgb(0, 0, 0);
+  }
+
+
 h2:hover {
     color: black;
     transition: 1s;
@@ -41,3 +56,44 @@ h2:hover {
 a:link,a:visited{
     text-decoration:none;
    }
+
+.dropbtn {
+    background-color: rgb(255, 255, 255);
+    color: white;
+    padding: 16px;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    position:absolute;
+    
+    
+}
+  
+.dropdown {
+    position: fixed;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 150px;
+    max-width: 200px;
+    box-shadow: none;
+    z-index: 1;
+    position:fixed;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display:block;
+  
+}
+  
+.dropdown-content a:hover {background-color: transparent;}
+.dropdown:hover .dropdown-content {display:inline-block;}
+.dropdown:hover .dropbtn {background-color: transparent;}
