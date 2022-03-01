@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&family=Sancreek&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200&family=Sancreek&family=Syne+Mono&display=swap');
+
+h1 {
+  font-size:100px ;
+  font-family:'Sancreek', cursive;
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  font-size:72px ;
+  font-family:'Sancreek', cursive;
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  font-size:36px ;
+  font-family:'Sancreek', cursive;
+}
+
+h4 {
+  font-size: 24spx;
+  font-family: 'Sancreek', cursive;
+  text-align: left;
+  padding: 10px;
+  color: white;
+}
+body {
+  background-color: black;
+}
