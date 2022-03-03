@@ -127,7 +127,6 @@ ul.pagination li a.active {
 ul.pagination li a:hover:not(.active) {background-color: rgb(0, 0, 0);
 color: rgba(255, 255, 255, 0.199);}
 
-
-audio{
-         display:none;
-     }
+audio {
+    display: none;
+}
