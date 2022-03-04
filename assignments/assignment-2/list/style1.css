@@ -9,7 +9,7 @@ html {
    padding: 1.5rem;
 }
 
-.header {
+header {
     padding: 10px;
     text-align: center;
     background: hsla(360, 100%, 36%, 0.42);
@@ -23,7 +23,13 @@ body {
     background-position: center;
 }
 
+.poke-list {
+  display: flex;
+  padding: 0 6px;
+  float: left;
+  width: 25%;
 
+}
 .topnav {
   overflow: hidden;
   background-color: rgba(107, 8, 8, 0.507);
