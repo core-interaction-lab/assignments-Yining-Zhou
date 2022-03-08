@@ -47,11 +47,13 @@ h3 {
   }
 
 
-h2:hover {
+h2:hover,span:hover{
     color: black;
     transition: 1s;
     cursor: pointer;
 }
+
+
 
 .content {
     margin-left: 25%;
@@ -127,3 +129,7 @@ ul.pagination li a.active {
 ul.pagination li a:hover:not(.active) {background-color: rgb(255, 255, 255);
 color: rgba(0, 0, 0, 0.199);}
 
+body {
+    cursor: url(../m1.png), default;
+}
+a:hover{cursor:url(../m2.png),pointer;}

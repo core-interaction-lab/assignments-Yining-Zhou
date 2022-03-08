@@ -4,14 +4,14 @@
 body {
     margin: 0cm;
     padding: 0px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
 }
 
 .header {
     padding: 9px;
     text-align: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.589);
+    background-color: rgba(255, 255, 255, 0.589);
     top: 0px;
     left: 200px;
     width: 1000px;
@@ -27,7 +27,7 @@ body {
 h1 {
     font-size:24px ;
     font-family:'Syne Mono', monospace;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 
     
   
@@ -36,23 +36,22 @@ h1 {
 h2 {
   font-size: 16px;
   font-family: 'Syne Mono', monospace;
-  color: rgba(36, 36, 36, 0.548);
+  color: rgba(236, 236, 236, 0.548);
 }
 
 h3 {
     font-size:24px ;
     font-family:'Sancreek', cursive;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     
   }
 
 
 h2:hover {
-    color: rgb(255, 255, 255);
+    color: black;
     transition: 1s;
     cursor: pointer;
 }
-
 
 .content {
     margin-left: 25%;
@@ -65,8 +64,8 @@ a:link,a:visited{
    }
 
 .dropbtn {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: white;
     padding: 16px;
     font-size: 28px;
     border: none;
@@ -84,7 +83,7 @@ a:link,a:visited{
     display: none;
     position: absolute;
     right: 0;
-    background-color: rgb(0, 0, 0);
+    background-color: white;
     min-width: 150px;
     max-width: 200px;
     box-shadow: none;
@@ -93,7 +92,7 @@ a:link,a:visited{
 }
   
 .dropdown-content a {
-    color: rgb(255, 255, 255);
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display:block;
@@ -114,7 +113,7 @@ ul.pagination {
 ul.pagination li {display: inline;}
 
 ul.pagination li a {
-    color: rgb(255, 255, 255);
+    color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -122,15 +121,11 @@ ul.pagination li a {
 }
 
 ul.pagination li a.active {
-    background-color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
+    background-color: white;
+    color: white;
 }
-ul.pagination li a:hover:not(.active) {background-color: rgb(0, 0, 0);
-color: rgba(255, 255, 255, 0.199);}
-
-audio {
-    display: none;
-}
+ul.pagination li a:hover:not(.active) {background-color: rgb(255, 255, 255);
+color: rgba(0, 0, 0, 0.199);}
 
 body {
     cursor: url(../m1.png), default;
