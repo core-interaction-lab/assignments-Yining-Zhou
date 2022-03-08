@@ -140,3 +140,8 @@ ul li:hover{
     background: black;
     box-shadow: 0 0 30px rgb(255, 255, 255);
 }
+
+body {
+    cursor: url(../m1.png), default;
+}
+a:hover{cursor:url(../m2.png),pointer;}
