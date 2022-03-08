@@ -126,3 +126,4 @@ ul.pagination li a.active {
 }
 ul.pagination li a:hover:not(.active) {background-color: rgb(255, 255, 255);
 color: rgba(0, 0, 0, 0.199);}
+
