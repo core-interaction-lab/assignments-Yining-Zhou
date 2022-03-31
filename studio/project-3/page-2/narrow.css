@@ -1,0 +1,50 @@
+body {
+    margin: 0cm;
+    padding: 0px;
+    background-color:rgb(244, 220, 191);
+}
+
+
+.topnav  {
+ background:#FFFAEF ;
+ height:100%;
+ width:25%;
+ float:left;
+ position: fixed;
+}
+.list {
+    display: flex;
+    margin-left: 37.2%;
+    float: left;
+    width: 50%;
+    margin-top: 4%;
+  
+}
+div.img {
+    border: 1px solid rgb(155, 155, 155);
+    background-color: rgb(146, 146, 146);
+    margin-top: 15%;
+}
+
+div.img:hover {
+    border: 3px solid rgb(231, 180, 103);
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 3%;
+    text-align: center;
+    background-color: #FFFAEF;
+}
+* {
+    box-sizing: border-box;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
