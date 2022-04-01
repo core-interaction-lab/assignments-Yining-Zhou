@@ -48,3 +48,7 @@ div.desc {
     display: table;
     clear: both;
 }
+h5 {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 0.5rem;
+}

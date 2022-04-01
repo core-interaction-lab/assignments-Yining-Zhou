@@ -2,6 +2,9 @@
 /*font-family: 'Righteous', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Righteous&display=swap');
 /*font-family: 'Palette Mosaic', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@500&family=Palette+Mosaic&family=Righteous&display=swap');
+/*font-family: 'Palanquin Dark', sans-serif;*/
+
 body {
     margin: 0cm;
     padding: 0px;
@@ -39,7 +42,7 @@ div.img img {
 }
 
 div.desc {
-    padding: 3%;
+    padding: 1%;
     text-align: center;
     background-color: #FFFAEF;
 }
@@ -50,4 +53,8 @@ div.desc {
     content: "";
     display: table;
     clear: both;
+}
+h5 {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-size: 1.4rem;
 }
