@@ -10,17 +10,110 @@
 </head>
 
 <body>
-    <div class="topnav">
-        <a href="../page-1/page-1.html">
-            <p>Back
-            <style>
-                p {
-                    padding: 3%;
-                }
-            </style>
-            </p>
-        </a>
-    </div>
+  <div id='select-bar'>
+		<div>
+			<img src='./imgs/dough.png'>
+		</div>
+    <div>
+			<img src='./imgs/plus-sign.png'>
+		</div>
+
+		<div class='select-bar-choice' data-name='cheese'>
+			<img src='./imgs/cheese-2.png' class='select-bar-choice-active'>
+			<img src='./imgs/cheese.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='chocolate'>
+			<img src='./imgs/chocolate-2.png' class='select-bar-choice-active'>
+			<img src='./imgs/chocolate.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='fruit'>
+			<img src='./imgs/fruit-2.png' class='select-bar-choice-active'>
+			<img src='./imgs/fruit.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='meat'>
+			<img src='./imgs/meat-2.png' class='select-bar-choice-active'>
+			<img src='imgs/meat.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='nuts'>
+			<img src='./imgs/nuts-2.png' class='select-bar-choice-active'>
+			<img src='imgs/nuts.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='cream'>
+			<img src='./imgs/sour-cream-2.png' class='select-bar-choice-active'>
+			<img src='./imgs/sour-cream.png' class='select-bar-choice-inactive'>
+		</div>
+		<div class='select-bar-choice' data-name='vegetable'>
+			<img src='./imgs/vegetable-2.png' class='select-bar-choice-active'>
+			<img src='./imgs/vegetable.png' class='select-bar-choice-inactive'>
+		</div>
+	</div>
+	<div id='result'>
+    <script>
+      var combinations = [
+        [0],
+        [0, 1],
+        [0, 2],
+        [0, 2, 3, 6],
+        [0, 3],
+        [0, 3, 6],
+        [0, 6],
+        [1],
+        [1, 2],
+        [1, 2, 3, 6],
+        [1, 5],
+        [2],
+        [2, 3, 6],
+        [2, 4],
+        [2, 5],
+        [3],
+        [3, 6],
+        [4],
+        [4, 5],
+        [5],
+        [6],
+      ]
+  
+      document.getElementById('select-bar').addEventListener('click', function(e) {
+        if (e.target.classList.contains('select-bar-choice-active') || e.target.classList.contains('select-bar-choice-inactive')) {
+          if (e.target.parentElement.classList.contains('disabled')) return;
+          e.target.parentElement.classList.toggle('active');
+          updateDisable()
+          showResult()
+        }
+      })
+  
+      
+      function isSuperSet(a, b) {
+        return b.every(item => a.indexOf(item) > -1);
+      }
+  
+      
+      function updateDisable() {
+        var choices = [...document.querySelectorAll('.select-bar-choice')];
+        choices.forEach(choice => choice.classList.add('disabled'));
+  
+        var selectedIndexes = []; 
+        for (var i in choices) {
+          if (choices[i].classList.contains('active')) selectedIndexes.push(Number(i));
+        }
+        
+        var filteredCombinations = combinations.filter(comb => isSuperSet(comb, selectedIndexes));
+        var toEnableIndexes = new Set();
+        for (var comb of filteredCombinations) {
+          comb.forEach(item => toEnableIndexes.add(item));
+        }
+        toEnableIndexes.forEach(i => {
+          choices[i].classList.remove('disabled');
+        })
+      }
+  
+      function showResult() {
+        var choices = [...document.querySelectorAll('.select-bar-choice.active')];
+      }
+    </script>
+
+
+
 
     <div class="list">
         <div class="img">

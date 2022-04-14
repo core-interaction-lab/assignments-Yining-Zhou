@@ -11,50 +11,37 @@ body {
 h1 {
     font-family: 'Righteous', cursive;
     font-family: 'Righteous'; 
-    font-size: 118px;
-    color: #fceed4;
-    position: absolute;
-    width: 65%;
-    height: 40%;
-    text-shadow: 2px 2px 4px #afab9d
+    font-size: 30px;
+    color:rgb(255, 255, 255)
+}
 
+#about {
+    position: fixed;
+    margin-left: 3%;
 }
 div.title{
     margin-left: 23%;
-    margin-top: 3%;
+    margin-top: 0%;
     text-align: center;
 
 }
-h2 {
-    font-family: 'Palette Mosaic', cursive;
-    font-size: 50px;
-    text-align: center;
-    margin-top: 420px;
-    color: rgba(227, 185, 135, 1);
-    letter-spacing: 0.505em;
+
+a:link,a:visited{
+    text-decoration:none;
 }
 
-div#img1 {
+#title {
+    position:absolute ;
+    margin-left: 17%;
+    top:70px
+}
+
+#gif1 {
     position: absolute;
-    width: 577px;
-    height: 588px;
-    left: -118px;
-    top: -191px;
+    margin-top: 580px;
+    margin-left: 50%;
 }
 
-div#img2 {
-    display: flex;
-    margin-top: 30%;
-    float: right;
-}
-
-div#img3 {
-    position: absolute;
-    width: 512px;
-    height: 512px;
-    left: -197px;
-    top: 1200px;    
-}
 
 .bar {
     background-color: rgba(255, 250, 239, 1);
@@ -64,15 +51,5 @@ div#img3 {
     left: 0px;
     top: 780px;
     
-}
-
-div #icon-container {
-    width: 100%;
-    background-color: aquamarine;
-    position:absolute;
-    width: 100%;
-    height: 250px;
-    top: 160px;
-    text-align: center;
 }
 
