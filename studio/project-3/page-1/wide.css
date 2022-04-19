@@ -53,3 +53,30 @@ a:link,a:visited{
     
 }
 
+#about1 {
+    margin-left: 200px;
+    margin-top: 90px;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(223, 189, 157);
+    font-size: 2rem;
+    margin-left: 40%;
+}
+
+h2:hover {
+    color: rgb(121, 112, 100);
+    font-size: 2.5rem;
+}
+
+h3:hover {
+    color: rgb(207, 186, 159);
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    margin-left: 40%;
+}

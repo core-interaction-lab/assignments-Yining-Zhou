@@ -12,6 +12,12 @@
     .list .img img:hover {
       display: block;
     }
+    p.hidden-description {
+      display: none;
+    }
+    .list.active p.hidden-description {
+      display: block;
+    }
   </style>
 </head>
 
@@ -53,77 +59,26 @@
       <img src='./imgs/vegetable.png' class='select-bar-choice-inactive'>
     </div>
   </div>
-  <div class="list" style="position: relative;">
-  
-    <div class="img">
 
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-
-      </a>
-      <div class="desc">
-        <h5>name </h5>
+  <template id="list-template">
+    <div class="list">
+      <div class="img">
+        <img src="">
+        </a>
+        <div class="desc">
+          <h5></h5>
+          <p class="hidden-description"></p>
+        </div>
       </div>
     </div>
-    <div class="detail"
-      style="position: absolute;display: none; top: 100%;left: 0; width: 380px;height: 300px;background-color: yellow;">
-      111</div>
-      </div>
+  </template>
+  <div id="list-wrapper">
   </div>
 
-  <div class="list">
-    <div class="img">
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-      </a>
-      <div class="desc">
-        <h5>name</h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="list">
-    <div class="img">
-
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-      </a>
-      <div class="desc">
-        <h5>name</h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="list">
-    <div class="img">
-
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-      </a>
-      <div class="desc">
-        <h5>name </h5>
-      </div>
-    </div>
-  </div>
-  <div class="list">
-    <div class="img">
-
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-      </a>
-      <div class="desc">
-        <h5>name</h5>
-      </div>
-    </div>
-  </div>
-  <div class="list">
-    <div class="img">
-
-      <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png" alt="Forest" width="600" height="400">
-      </a>
-      <div class="desc">
-        <h5>name</h5>
-      </div>
-    </div>
-  </div>
   <script>
 
-
+    var listTemplate = document.getElementById('list-template'),
+      listWrapper = document.getElementById('list-wrapper');
     var combinations = [
       [0],
       [0, 1],
@@ -146,14 +101,139 @@
       [4, 5],
       [5],
       [6],
-    ]
+    ];
+    var imgSets = [
+      ['photo/0/Koreanricecake.jpg|Cheese Tteokbokki|Tteokbokki, or simmered rice cake, is a popular Korean food made from small-sized garae-tteok (long, white, cylinder-shaped rice cakes) called tteokmyeon  or commonly tteokbokki-tteok (떡볶이 떡; "tteokbokki rice cakes”).Eomuk (fish cakes), boiled eggs, and scallions are some common ingredients paired with tteokbokki in dishes. It can be seasoned with either spicy gochujang (chili paste) or non-spicy ganjang (soy sauce)-based sauce; the former is the most common form,while the latter is less common and sometimes called gungjung-tteokbokki (royal court tteokbokki).', 
+      'photo/0/StuffedCrustPizza.jpg|Stuffed-Crust Pizza|Stuffed crust pizza is pizza with cheese or other ingredients added into the outer edge of the crust. The stuffed crust pizza was popularized by Pizza Hut, which debuted this style of pizza in 1995. Rob Mason claims to have invented stuffed crust in 1992.',
+      ],
+
+      ['photo/01/Flao.jpg|Flaó|Flaó is a cheesecake or tart found in Spanish cuisine popular from Catalan speaking areas. It is claimed by Majorca, Ibiza and Formentera, with some controversy. Traditionally flaons were part of Easter family celebrations in Menorca, but now they are available all year round. In some regions flaons are a type of crescent-shaped pie filled with jam and honey in Calasseit, Taragon, or some type of cheese, varying according to the location.'],
+
+      ['photo/02/fruitpizza.jpg|Fruit Pizza|A fruit pizza is a type of pastry that is distinguished by its pizza-shaped cookie crust, frosting, and fruit toppings. Fruit pizza is well known for the colorful designs and patterns made by the intricate arrangement of the many different fruits topping the dessert. Fruit pizza is often seen as a healthier dessert option due to the prominence of fresh fruit.',
+      'photo/02/peerpizza.jpg|Pear Pizza| Fresh pears and Gorgonzola cheese star as unlikely cohorts in this wildly delicious flavor extravaganza!'],
+
+      ['photo/0236/Pastel.jpg|Pastel|Brazil, pastel (plural: pastéis) is a typical fast-food Brazilian dish consisting of half-circle or rectangle-shaped thin crust pies with assorted sweet fillings and fried in vegetable oil. The result is a crispy, brownish fried pie. Some of the sweet fillings are guava paste with Minas cheese, banana and chocolate also exist. The pastel is classified in Brazilian cuisine as a salgado (savoury snack). It is traditionally sold on the streets, in open-air marketplaces, or in fast-food shops known as pastelarias. A common beverage to drink with pastéis is caldo de cana, a sugarcane juice. Pastéis can also consist non-sweet fillings, such as ground meat, mozzarella, catupiry, heart of palm, codfish, cream cheese, chicken and small shrimp.',
+      'photo/0236/Crepe.jpg|Pastel|A crêpe or crepe is a very thin type of pancake. Crêpes originated in Brittany, a region in western France, during the 13th century, and are now consumed around the world. Crêpes are usually one of two varieties: sweet crêpes (crêpes sucrées) or savoury galettes (crêpes salées). They are often served with a wide variety of fillings such as jam or hazelnut cocoa spread. Crêpes can also be flambéed, such as in crêpes Suzette.',
+      'photo/0236/Croquette.jpg|Pastel|A croquette is a type of dumpling consisting of a thick binder combined with a filling, which is breaded and deep-fried, and served as a side dish, a snack, or fast food worldwide.The binder is typically a thick béchamel or brown sauce, mashed potatoes, wheat flour or wheat bread. The binder may be mixed with or stuffed with a filling; this mixture is called a salpicon. Typical fillings include finely chopped meat, seafood, cheese, rice, pasta, mushrooms, and various vegetables as well as seasonings such as herbs and spices. Sweet croquettes may use a pastry cream binder and be filled with fruit.',
+      'photo/0236/Tamales.jpg|Pastel|A tamale is a traditional Mesoamerican dish, made of masa, a dough made from nixtamalized corn, which is steamed in a corn husk or banana leaf. The wrapping can either be discarded prior to eating or used as a plate. Tamales can be filled with meats, cheeses, fruits, vegetables, herbs, chilies, or any preparation according to taste, and both the filling and the cooking liquid may be seasoned. '],
+      
+      ['photo/03/Arepas.jpg|Arepas|Arepa is a type of food made of ground maize dough, eaten in the northern region of South America since pre-Columbian times, and notable primarily in the cuisine of Colombia and Venezuela, but also present in the cuisines of Bolivia and other countries.It is commonly eaten in those countries and can be served with accompaniments such as cheese, cuajada (fresh cheese), various meats, chicken, avocado, or diablito (deviled ham spread). It can also be split to make sandwiches. Sizes, maize types, and added ingredients vary its preparation.',
+      'photo/03/Cappelletti.jpg|Cappelletti|Cappelletti are ring-shaped Italian pasta so called for the characteristic shape that resembles a hat (cappello in Italian). Compared to tortellini, they have a different shape, larger size, thicker dough and different filling.The origins of the recipe, very widespread on a territorial basis, are ancient, traditionally and historically linked to Emilia-Romagna and Marche. From these areas it then spread over the centuries, becoming a typical dish in various cities. Some recent sources specifically indicate the area in the Cesena-Ferrara-Reggio Emilia triangle as the place of origin, others report the Marche as a land where cappelletti are of ancient tradition.',
+      'photo/03/Quesadillas.jpg|Quesadillas|A quesadilla is a Mexican dish consisting of a tortilla that is filled primarily with cheese, and sometimes meats, spices, and other fillings, and then cooked on a griddle or stove. Traditionally, a corn tortilla is used, but it can also be made with a flour tortilla. ',
+      'photo/03/Tortellini.jpg|Tortellini|Tortellini are pasta originally from the Italian region of Emilia (in particular Bologna and Modena). Traditionally they are stuffed with a mix of meat (pork loin, raw prosciutto, mortadella), Parmigiano Reggiano cheese, egg and nutmeg and served in capon broth (in brodo di cappone).'],
+
+      ['photo/036/JamaicanPatty.jpg|Jamaican Patty|A Jamaican patty is a pastry that contains various fillings and spices baked inside a flaky shell, often tinted golden yellow with an egg yolk mixture or turmeric. It is made like a turnover, but is more savoury and filled with meat. As its name suggests, it is commonly found in Jamaica, and is also eaten in other areas of the Caribbean, such as the Caribbean coast of Nicaragua, Panama and Costa Rica. It is traditionally filled with seasoned ground beef, but fillings can include chicken, pork, lamb, vegetables, shrimp, lobster, fish, soy, ackee, mixed vegetables or cheese.',
+      'photo/036/Empanada.jpg|Empanada|An empanada is a dish of Spanish cuisine, a type of baked or fried turnover consisting of pastry and filling, common in Spanish, other Southern European, Latin American, and the Philippine cultures. The name comes from the Spanish verb "empanar" (coat with bread), and translates as "enbreaded", that is, wrapped or coated in bread. They are made by folding dough over a filling, which may consist of meat, cheese, tomato, corn, or other ingredients, and then cooking the resulting turnover, either by baking or frying.',
+      'photo/036/Pierogi.jpg|Pierogi|Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water. They are often pan-fried before serving.',
+      'photo/036/Pupusa.jpg|Pupusa|A pupusa is a thick griddle cake or flatbread from El Salvador and Honduras, made with cornmeal or rice flour, similar to the Venezuelan and Colombian arepa. In El Salvador, it has been declared the national dish and has a specific day to celebrate it. It is usually stuffed with one or more ingredients, which may include cheese (such as quesillo or cheese with loroco buds), chicharrón, squash, or refried beans. It is typically accompanied by curtido (a spicy fermented cabbage slaw) and tomato salsa, and is traditionally eaten by hand.',
+      'photo/036/Calzone.jpg|Calzone|A calzone is an Italian oven-baked folded pizza, often described as a turnover, made with leavened dough. It originated in Naples in the 18th century. A typical calzone is made from salted bread dough, baked in an oven and is stuffed with salami, ham or vegetables, mozzarella, ricotta and Parmesan or pecorino cheese, as well as an egg. Different regional variations in or on a calzone can often include other ingredients that are normally associated with pizza toppings. The term usually applies to an oven-baked turnover rather than a fried pastry (i.e. panzerotti), though calzoni and panzerotti are often mistaken for each other.',
+      'photo/036/HotPocket.jpg|Hot Pocket|Hot Pockets is an American brand of microwaveable turnovers generally containing one or more types of cheese, meat, or vegetables. Hot Pockets was founded by the Chef America Inc. Since April 20, 2002, they have been produced by Nestlé.',
+      'photo/036/Mandu.jpg|Mandu|Mandu (만두; 饅頭) are dumplings in Korean cuisine. Mandu can be steamed, boiled, pan-fried, or deep-fried. The styles also vary across regions in the Korean Peninsula. Mandu were long part of Korean royal court cuisine, but are now found in supermarkets, restaurants, and snack places such as pojangmacha and bunsikjip throughout Korea.',
+      'photo/036/Momo.jpg|Momo|Momo (Nepal Bhasha: म:म:, Tibetan: མོག་མོག་) is a type of dumpling which are prominently found in the cuisines of Nepal and Tibet, as well as in the Indian states of Ladakh and Sikkim. It has evolved and spread to many countries who have adapted it and modified as per their preference. ',],
+
+      ['photo/06/KarntnerKasnudeln.jpg|Kärntner Kasnudeln|Kärntner Kasnudeln, are pockets of dough filled with Topfen, potatoes, herbs and peppermint which are boiled and served with a butter sauce. Kasnudeln are traditionally served with a salad.',
+      'photo/06/Knish.jpg|Knish|A knish is a traditional Ashkenazi Jewish snack food consisting of a filling covered with dough that is typically baked or sometimes deep fried. In most traditional versions, the filling is made entirely of mashed potato, kasha (buckwheat groats), or cheese. Other varieties of fillings include sweet potatoes, black beans, or spinach. ',
+      'photo/06/Pastizzi.jpg|Pastizzi|A pastizz is a traditional savoury pastry from Malta. Pastizzi usually have a filling either of ricotta or curried peas. Pastizzi are a popular and well-known traditional Maltese food.',
+      'photo/06/Ravioli.jpg|Ravioli|Ravioli are a type of pasta comprising a filling enveloped in thin pasta dough. Usually served in broth or with a sauce, they originated as a traditional food in Italian cuisine. Ravioli are commonly square, though other forms are also used, including circular and semi-circular (mezzelune). ',
+      'photo/06/Spanakopita.jpg|Spanakopita|Spanakopita (σπανακόπιτα) is a Greek savory spinach pie. It often also contains cheese, typically feta, and may then be called spanakotiropita (σπανακοτυρόπιτα ), especially in northern Greece. In southern Greece, the term spanakopita is also common for the versions with cheese. A version without cheese and eggs is eaten during religious fasts throughout Greece. ',],
+
+      ['photo/1/ChocolateCroissant.jpg|Chocolate Croissant|Pain au chocolate also known as chocolatine in the south-west part of France and in Canada, or couque au chocolate in Belgium, is a type of viennoiserie sweet pastry consisting of a cuboid-shaped piece of yeast-leavened laminated dough, similar in texture to a puff pastry, with one or two pieces of dark chocolate in the center.Pains au chocolate prior to baking. Pain au chocolate is made of the same layered dough as a croissant. Often sold still hot or warm from the oven, they are commonly sold alongside croissants in French bakeries and supermarkets. ',
+      'photo/1/Bubbaloo.jpg|Bubbaloo|Bubbaloo was the first bubblegum with a liquid center and made its debut in Mexican and Brazilian markets during the early-1980s. Today, Bubbaloo is sold in more than 25 countries and in three different continents across the world.',
+      'photo/1/CinnamonRoll.jpg|Cinnamon Roll|A cinnamon roll is a sweet roll commonly served in Northern Europe (mainly in Nordic countries, but also in Austria and Germany) and North America. In Sweden it is called kanelbulle, in Denmark it is known as kanelsnegl, in Norway it is known as kanelbolle, skillingsboller or kanelsnurr, in Finland it is known as korvapuusti, and in Estonia it is known as kaneelirull. In Austria and Germany it is called Zimtschnecke.',
+      'photo/1/Dorayaki.jpg|Dorayaki|Dorayaki (どら焼き) is a type of Japanese confection. It consists of two small pancake-like patties made from castella wrapped around a filling of sweet azuki bean paste.',
+      'photo/1/Figolla.jpg|Figolla|Figolla is a Maltese pastry stuffed with a marzipan-like filling and served as an Easter sweet. These are often shaped like hearts, crosses, stars, fish, any symbol which links to Christianity, particularly Catholicism, but in modern times these can be shaped into anything the person you give one to is passionate about. ',
+      'photo/1/LavaCake.jpg|Lava Cake|Molten chocolate cake is a popular dessert that combines the elements of a chocolate cake and a soufflé. Its name derives from the desserts liquid chocolate center, and it is also known as chocolate moelleux (from French for "soft"), chocolate lava cake, or simply lava cake. It should not be confused with chocolate fondant, a recipe that contains little flour, but much chocolate and butter, hence melting on the palate (but not on the plate.',],
+
+      ['photo/12/Cornulețe.jpg|Cornulețe|Cornulețe are Romanian and Moldovan pastries aromatised with vanilla or rum extract/essence, as well as lemon rind, and stuffed with Turkish delight, jam, chocolate, cinnamon sugar, walnuts, and/or raisins, with the shape representing a crescent. They are traditionally eaten during Romanian holidays, especially during Christmas time, or other special occasions. ',
+      'photo/12/PopTart.jpg|Pop Tart|Pop-Tarts is a brand of toaster pastries produced and distributed by Kelloggs since 1964. Pop-Tarts have a sweet filling sealed inside two layers of thin, rectangular pastry crust. Most varieties are also frosted. Although sold pre-cooked, they are designed to be warmed inside a toaster or microwave oven. They are usually sold in pairs inside Mylar (previously foil) packages and do not require refrigeration.Pop-Tarts is Kelloggs most popular brand to date in the United States, with millions of units sold each year. They are distributed mainly in the United States, but also in Canada, the United Kingdom, Ireland, Australia and New Zealand.',
+      'photo/12/Strudel.jpg|Strudel|A strudel is a type of layered pastry with a filling that is usually sweet, but savoury fillings are also common. It became popular in the 18th century throughout the Habsburg Empire. Strudel is part of Austrian cuisine but is also common in other Central European cuisines. In Italy it is recognized as a traditional agri-food product (PAT) of South Tyrol.',],
+
+      ['photo/1236/Turnover.jpg|Turnover|A turnover is a type of pastry or bread made by placing a filling on a piece of dough, folding the dough over, sealing, and baking it. Turnovers can be sweet or savory and are often made as a sort of portable meal or dessert. They are often eaten for breakfast. It is common for sweet turnovers to have a fruit filling and be made with a puff pastry or shortcrust pastry dough and covered with icing; savory turnovers generally contain meat and/or vegetables and can be made with any sort of dough, though a kneaded yeast dough seems to be the most common in Western cuisines. They are usually baked, but may be fried.',],
+      
+      ['photo/15/Cannoli.jpg|Cannoli|Cannoli are Italian pastries consisting of tube-shaped shells of fried pastry dough, filled with a sweet, creamy filling usually containing ricotta—a staple of Sicilian cuisine. They range in size from 9 to 20 centimetres (3+1⁄2 to 8 in). In mainland Italy, they are commonly known as cannoli siciliani (Sicilian cannoli). ',
+      'photo/15/MoonPie.jpg|Moon Pie|A Moon Pie, stylized as MoonPie, is an American confection, popular across much of the United States, which consists of two round graham cookies, with marshmallow filling in the center, dipped in a flavored coating. The snack is often associated with the cuisine of the American South, where they are traditionally accompanied by an RC Cola. Today, MoonPies are made by Chattanooga Bakery, Inc. in Chattanooga, Tennessee. ',
+      'photo/15/Yodels.jpg|Yodels|Yodels are frosted, cream-filled cakes made by the Drakes company, which was bought by McKee Foods after former owner Old HB went bankrupt. Yodels are distributed on the East Coast of the United States. They are similar to Hostess Brands.Ho Hos and Little Debbie Swiss Cake Rolls. ',
+      'photo/15/Zeppole.jpg|Zeppole|A zeppola is an Italian pastry consisting of a deep-fried dough ball of varying size but typically about 4 inches (10 cm) in diameter. This fritter is usually topped with powdered sugar, and may be filled with custard, jelly, cannoli-style pastry cream, or a butter-and-honey mixture. The consistency ranges from light and puffy, to bread- or pasta-like. It is eaten to celebrate Saint Josephs Day, which is a Catholic feast day.',],
+
+      ['photo/2/AppleDumpling.jpg|Apple Dumpling|An apple dumpling is a baked or boiled pastry-wrapped apple. To prepare apple dumplings, apples are peeled, cored and sometimes quartered and placed on a portion of dough. The hole from the core may be filled with cinnamon, butter and sugar and sometimes dried fruit such as raisins, sultanas, or currants. The dough is folded over the apples and sealed. Sometimes a spiced sauce is poured over the dumplings which are then baked until tender; the sugar and butter create a sweet sauce. Apple dumplings can be served hot, cold, or room temperature for breakfast, dessert, or as a main dish. ',
+      'photo/2/BolodeRolo.jpg|Bolo de Rolo|Bolo de rolo is a typical Brazilian dessert, from Pernambuco state. The cake batter is made with flour, eggs, butter and sugar. This dough is wrapped with a layer of guava paste, giving the appearance of a swiss roll with much thinner layers. It is recognized as a national dish in Brazilian law',
+      'photo/2/FigRoll.jpg|Fig Roll|The fig roll or fig bar is a cookie or biscuit consisting of a rolled cake or pastry filled with fig paste. ',
+      'photo/2/GaiMeiBaau.jpg|Gai Mei Baau|The cocktail bun (雞尾包) is a Hong Kong-style sweet bun with a filling of shredded coconut. It is one of several iconic types of baked goods originating from Hong Kong.',
+      'photo/2/Modak.jpg|Modak|Modak (Marathi: मोदक) is an Indian sweet dumpling dish popular in many Indian states and cultures. According to Hindu belief, it is considered one of the favourite dishes of Lord Ganesha and is therefore used in prayers. The sweet filling on the inside of a modak consists of freshly grated coconut and jaggery, while the outer soft shell is made from rice flour or wheat flour mixed with khava or maida flour.',
+      'photo/2/PineappleCake.jpg|Pineapple Cake|Pineapple cake (Chinese: 鳳梨酥; Taiwanese Hokkien: 王梨酥 ông-lâi-so͘) is a sweet traditional Taiwanese pastry containing butter, flour, egg, sugar, and pineapple jam or slices. ',],
+
+      ['photo/236/Onigiri.jpg|Onigiri|Onigiri (お握り or 御握り), also known as omusubi (お結び), nigirimeshi (握り飯), or rice ball, is a Japanese food made from white rice formed into triangular or cylindrical shapes and often wrapped in nori.[a] Traditionally, an onigiri is filled with pickled ume (umeboshi), salted salmon, katsuobushi, kombu, tarako, mentaiko, takanazuke (pickled takana) or any other salty or sour ingredient as a natural preservative.',
+      'photo/236/Banhpia.jpg|Bánh pía|Bánh bía, sometimes spelled bánh pía, is a type of Vietnamese cuisine bánh (translates loosely as "cake" or "bread"). A Suzhou style mooncake adapted from Teochew cuisine. The Vietnamese name comes from the Teochew word for pastry, "pia". In Saigon, the pastry is called “bánh bía” while in Sóc Trăng and Vũng Thơm it is known by "bánh Pía". Some Vietnamese call it bánh lột da, which translates to "peeling flakes pastry", and those from the Bến Tre region call it bánh bao chi, which is the name for Mochi elsewhere in Vietnam. Popular fillings include durian, shredded pork fat, salted egg yolk, mung bean paste, taro and coconut.',
+      'photo/236/Tangyuan.jpg|Tangyuan|Tangyuan (汤圆) is a Chinese dessert consisting of balls of glutinous rice flour and water that are boiled or deep-fried and served in a hot broth or syrup. Tangyuan can be either small or large and filled or unfilled. They are traditionally eaten during the Lantern Festival, but because the name of the dish is a homophone for union they are also served on wedding days, at family reunions, and during the Dōngzhì (winter solstice) festival.',],
+
+      ['photo/24/Maamoul.jpg|Ma’amoul|Maamoul (معمول) is a filled butter cookie made with semolina flour. The filling can be made with dried fruits like figs or dates or nuts such as pistachios or walnuts and occasionally almonds.Maamoul are usually made during the Easter holiday, and a few days before Eid (then stored to be served with Arabic coffee and chocolate to guests who come during the holiday). It is popular throughout the Arab world, especially in the Arabian peninsula.',
+      'photo/24/Makroudh.jpg|Makroudh|Makroudh (مقروضt) is a cookie from the cuisines of the Maghreb and Malta. It is filled with dates and nuts or almond paste, that has a diamond shape – the name derives from this characteristic shape.The dough is made with a combination of semolina and flour, which gives the pastry a very specific texture and flavor. Makroudh can be fried in oil or oven-baked.',
+      'photo/24/Mooncake.jpg|Moon cake|A mooncake (月饼) is a Chinese bakery product traditionally eaten during the Mid-Autumn Festival (中秋節). The festival is about lunar appreciation and Moon watching, and mooncakes are regarded as a delicacy. Mooncakes are offered between friends or on family gatherings while celebrating the festival. The Mid-Autumn Festival is widely regarded as one of the four most important Chinese festivals.There are numerous varieties of mooncakes consumed within China and outside of China in overseas Chinese communities. The Cantonese mooncake is the most famous variety. A typical Cantonese mooncake is a round pastry, measuring about 10 cm (4 in) in diameter and 3–4 cm (1+1⁄4–1+1⁄2 in) thick. The Cantonese mooncake consists of a rich thick filling usually made from red bean paste or lotus seed paste is surrounded by a thin, 2–3 mm (approximately 1/8th of an inch) crust and may contain yolks from salted duck eggs. |',
+      'photo/24/Uncrustable.jpg|Uncrustable|An Uncrustable is a processed food that is basically a filling layer (usually peanut butter & jelly) that is then crimped in bread',
+      'photo/24/Yomari.jpg|Yomari|Yomari, also called yamari, is a delicacy of the Newar community in Nepal. It is a steamed dumpling that consists of an external covering of rice flour with sweet fillings such as chaku. The delicacy plays a very important role in Newa society, and is a key part of the festival of Yomari Punhi. According to some, the triangular shape of the Yamari is a symbolical representation of one half of the Shadkona, the symbol of Saraswati and wisdom.',],
+
+      ['photo/25/Bombolone.jpg|Bombolone|A bombolone is an Italian filled doughnut and is eaten as a snack food and dessert. The pastrys name is etymologically related to bomba (bomb), and the same type of pastry is also called bomba in some regions of Italy. The etymological connection is probably due to the resemblance to a grenade or old-fashioned bomb and may today possibly also be regarded as a reference to the high calorie density of this recipe (i.e., a "calorie bomb").',
+      'photo/25/Puits.jpg|Puits d amour|The Puits d amour is a French pastry with a hollow center. The center is usually stuffed with redcurrant jelly or raspberry jam; a later variation replaced the jam with vanilla pastry cream. The surface of the cake is sprinkled with confectioners sugar or covered with caramel.',],
+
+      ['photo/3/Xiaolongbao.jpg|Xiao long bao|Xiaolongbao (小笼包) refers to a type of small Chinese steamed bun (baozi) traditionally prepared in a xiaolong, a small bamboo steaming basket, hence the name.',
+      'photo/3/BeefWellington.png|BeefWellington|Beef Wellington is a steak dish of English origin, made out of fillet steak coated with pâté (often pâté de foie gras) and duxelles, wrapped in puff pastry, then baked. Some recipes include wrapping the coated meat in a crêpe or parma ham to retain the moisture and prevent it from making the pastry soggy.A whole tenderloin may be wrapped and baked, and then sliced for serving, or the tenderloin may be sliced into individual portions prior to wrapping and baking. ',
+      'photo/3/Coxinha.jpg|Coxinha|A common beverage to drink with pastéis is caldo de cana, a sugarcane juice. Pastéis can also consist non-sweet fillings, such as ground meat, mozzarella, catupiry, heart of palm, codfish, cream cheese, chicken and small shrimp.',
+      'photo/3/Bánhbộtlọc.jpg|Bánh bột lọc|Bánh bột lọc is a small, clear-looking, chewy tapioca dumplings in Vietnamese cuisine that can be eaten as appetizers or small snacks. They are usually filled with shrimp and pork belly, often being topped with fried shallots and served with sweet chili fish sauce. It is said to have originated from Huế, as the city was once the imperial capital of the Nguyễn dynasty and known for having simple, yet sophisticated dishes.',
+      'photo/3/CharSiuBao.jpg|Char Siu Bao|Char siu bao (叉烧包) is a Cantonese barbecue-pork-filled bun (baozi). The buns are filled with barbecue-flavored cha siu pork. They are served as a type of dim sum during yum cha and are sometimes sold in Chinese bakeries. Cha siu refers to the pork filling; the word bao means "bun".',
+      'photo/3/CornDog.jpg|Corn Dog|A corn dog (also spelled corndog) is a sausage (usually a hot dog) on a stick that has been coated in a thick layer of cornmeal batter and deep fried. It originated in the United States and is commonly found in American cuisine. ',
+      'photo/3/CrabRangoon.jpg|Crab Rangoon|Crab Rangoon, sometimes called crab puffs, crab rangoon puffs, or cheese wontons,are filled crisp dumpling appetizers served primarily in American Chinese restaurants.',
+      'photo/3/Fuzhou.jpg|Fuzhou Fish Balls|Fish balls have a long history in China, and the introduction of fish balls throughout Asia is often attributed to Chinese immigrants. Fish balls in China are made of "surimi, starch, egg white, fat, garlic juice, spring onion juice". Fish balls can also contain a wide array of seafood and other meats such as beef or pork.The Fuzhou variety (福州鱼丸) is made from fish with a minced pork filling.',
+      'photo/3/GamjaHotDog.jpg|Gamja Hot Dog|Korean corn dogs, also known as gamja hot dogs, are popular street food at night markets in Seoul, South Korea. Korean hot dogs can feature hot dogs, sausages, mozzarella sticks, fish cakes, or rice cakes. The corn dogs are dipped in a sweet batter and then coated in crunchy toppings like french fries, panko breadcrumbs, crushed instant ramen noodles, crispy rice puffs, or cornflakes before deep-frying until golden brown and crispy. ',
+      'photo/3/HarGow.jpg|Har Gow|Har gow (Chinese: 蝦餃; Cantonese Yale: hāgáau) is a traditional Cantonese dumpling served in dim sum and filled with shrimp.',
+      'photo/3/Joshpara.jpg|Joshpara|Joshpara is a kind of dumplings popular in Central Asia, South Caucasus and the Middle East. They are made of unleavened wheat dough squares filled with ground meat and condiments. In observance of the Islamic dietary rules, the meat filling is usually without pork.',
+      'photo/3/Khinkali.jpg|Khinkali|Khinkali (ხინკალი) is a very popular dumpling in Georgian cuisine. It is made of twisted knobs of dough, stuffed with meat and spices.',
+      'photo/3/Manti.jpg|Manti|Manti is a type of dumpling popular in most Turkic cuisines, as well as in the cuisines of the South Caucasus and Balkans, Central Asia, Afghanistan and Chinese Muslims. The dumplings typically consist of a spiced meat mixture, usually lamb or ground beef, in a thin dough wrapper and either boiled or steamed. Size and shape vary significantly depending on the geographical location.',
+      'photo/3/NoodleWrappedPrawn.jpg|Noodle Wrapped Prawn|A popular snack in Southeast Asia, noodle-wrapped prawns, hence the name, are prawns that have been wrapped in soba noodles and fried.',
+      'photo/3/Pastales.jpg|Pastales|Pasteles are a common food originating from Puerto Rico. Pasteles are made with pork and adobo stuffing encased in a green plantain masa and wrapped in banana leaves.  ',
+      'photo/3/SausageRoll.jpg|Sausage Roll|A sausage roll is a savoury pastry snack, popular in current and former Commonwealth nations, consisting of sausage meat wrapped in puffed pastry. Sausage rolls are sold at retail outlets and are also available from bakeries as a take-away food. A miniature version can be served as buffet or party food. ',
+      'photo/3/ScotchEgg.jpg|Scotch Egg|A Scotch egg is a boiled egg wrapped in sausage meat, coated in breadcrumbs and baked or deep-fried. ',
+      'photo/3/Takoyaki.jpg|Takoyaki|Takoyaki (たこ焼き or 蛸焼) or "octopus balls" is a ball-shaped Japanese snack made of a wheat flour-based batter and cooked in a special molded pan. It is typically filled with minced or diced octopus, tempura scraps, pickled ginger, and green onion. The balls are brushed with takoyaki sauce (similar to Worcestershire sauce) and mayonnaise, and then sprinkled with green laver and shavings of dried bonito.',],
+
+      ['photo/36/Burrito.jpg|Burrito|A burrito is a dish in Mexican and Tex-Mex cuisine that took form in California cuisine, consisting of a flour tortilla wrapped into a sealed cylindrical shape around various ingredients. The tortilla is sometimes lightly grilled or steamed to soften it, make it more pliable, and allow it to adhere to itself. Burritos are often eaten by hand, as their tight wrapping keeps the ingredients together.',
+      'photo/36/Arancini.jpg|Arancini|Arancini are Italian rice balls that are stuffed, coated with bread crumbs and deep fried, and are a staple of Sicilian cuisine. The most common fillings are: al ragù or al sugo, filled with ragù (meat or mince, slow-cooked at low temperature with tomato sauce and spices), mozzarella or caciocavallo cheese, and often peas, and al burro or ô burru, filled with ham and mozzarella or besciamella. ',
+      'photo/36/Buuz.jpg|Buuz|Buuz (Бууз) is a type of Mongolian steamed dumpling filled with meat. An example of authentic Mongolian and Buryatian cuisine, the dish is traditionally eaten at home during Tsagaan Sar, the Lunar New Year. These days it is also offered at restaurants and small cafes throughout the capital city of Ulaanbaatar.',
+      'photo/36/Gordita.jpg|Gordita|A gordita in Mexican cuisine is a dish made with masa and stuffed with cheese, meat, or other fillings. It is similar to the Colombian and Venezuelan arepa. Gordita means "chubby" in Spanish. There are two main variations of this dish, one which is typically fried in a deep wok-shaped comal, consumed mostly in central and southern Mexico, and another one baked on a regular comal. The most common and representative variation of this dish is the "gordita de chicharrón", filled with chicharron (a spiced stew of pork rind) which is widely consumed throughout Mexico. Gorditas are often eaten as a lunch dish and accompanied by several types of sauce.',
+      'photo/36/Gyoza.jpg|Gyoza|Traditionally in Japan gyoza are filled with a mix of finely minced pork, mushrooms and cabbage, which creates a delicious mix of flavours and textures.',
+      'photo/36/Jiaozi.jpg|Jiaozi|Jiaozi (餃子) dumplings commonly eaten in China and other parts of East Asia. Jiaozi are folded to resemble Chinese sycee and have great cultural significance attached to them within China. Jiaozi are one of the major dishes eaten during the Chinese New Year throughout the entire country and eaten all year round in the northern provinces. Though considered part of Chinese cuisine, jiaozi are popular in other parts of East Asia and in the Western world, where a fried variety is sometimes called potstickers.',
+      'photo/36/Kreplach.png|Kreplach|Kreplach (קרעפּלעך) are small dumplings filled with ground meat, mashed potatoes or another filling, usually boiled and served in chicken soup, though they may also be served fried.',
+      'photo/36/Kroppkaka.jpg|Kroppkaka|Kroppkaka (plural "kroppkakor") is a traditional Swedish boiled potato-dumplings, most commonly filled with onions and pork or bacon. Potatoes, wheat flour, onion, salt and minced meat/pork are common ingredients in kroppkaka. Kroppkakor are served with butter (melted) or half-and-half, lingon-jam or white sauce. Fried unsmoked streaky bacon is also often eaten with it. There are some regional variations of the recipe, in particular when it comes to the proportions of boiled and raw potatoes. Spices are heavily featured in some variations. Kroppkakor are mainly eaten in the southern Swedish landskap (provinces) of Öland, Småland, Gotland and Blekinge.',
+      'photo/36/Maultaschen.jpg|Maultaschen|Maultaschen are a kind of large meat-filled dumpling in Swabian cuisine. They consist of sheets of pasta dough filled with minced meat, smoked meat, spinach, bread crumbs and onions and flavored with various herbs and spices (e.g. pepper, parsley and nutmeg).',
+      'photo/36/Zongzi.jpg|Zongzi|Zongzi (粽子) or simply zong is a traditional Chinese rice dish made of glutinous rice stuffed with different fillings and wrapped in bamboo leaves or sometimes with reed or other large flat leaves. They are cooked by steaming or boiling. In the Western world, they are also known as rice dumplings or sticky rice dumplings.',
+      'photo/36/Pelmeni.jpg|Pelmeni|Pelmeni (пельмeни) are dumplings of Russian cuisine that consist of a filling wrapped in thin, unleavened dough. ',
+      'photo/36/RiceNoodleRoll.jpg|Rice Noodle Roll|A rice noodle roll is a Cantonese dish from Guangdong Province in southern China, commonly served either as a snack, small meal or variety of dim sum. It is a thin roll made from a wide strip of shahe fen (rice noodles), filled with shrimp, beef, vegetables, or other ingredients. Seasoned soy sauce—sometimes with siu mei drippings—is poured over the dish upon serving. When plain and made without filling, the rice noodle is also known as jyu cheung fan. The name, jyu cheung fan, “jyu” means “pig” in Cantonese, “cheung” means “intestine”, and “fan” means “noodles”. Combining means the pig intestine noodle roll because the appearance of the noodle roll looks like pigs intestine. There is no official recording of the history of the rice noodle roll. Most cooking books mention that the jyu cheung fan was begun in the 1930s. A snack or breakfast that sold in many street restaurants. In Guangzhou, Guangdong Province, people called it laai cheung because it is a noodle roll that pulled or pushed by hand.',
+      'photo/36/Shumai.jpg|Shumai|Shumai (烧卖) is a type of traditional Chinese dumpling. In Cantonese cuisine, it is usually served as a dim sum snack. In addition to accompanying the Chinese diaspora, a variation of shao mai also appears in Japan as (焼売, shūmai) and various southeast Asian countries. ',
+      'photo/36/Sushi.jpg|Sushi|Sushi is a Japanese dish of prepared vinegared rice, usually with some sugar and salt, accompanied by a variety of ingredients  such as seafood, often raw, and vegetables. Styles of sushi and its presentation vary widely, but the one key ingredient is "sushi rice", also referred to as shari, or sumeshi.',
+      'photo/36/Wonton.jpg|Wonton|A wonton (馄饨) is a type of Chinese dumpling commonly found across regional styles of Chinese cuisine.',],
+
+      ['photo/4/Hodugwaja.jpg|Hodu-gwaja|Hodu-gwaja (호두과자), commonly translated as walnut cookies, walnut cakes, and walnut pastries, is a type of cookie originated from Cheonan, South Korea.It is a walnut-shaped baked confection with red bean paste filling, whose outer dough is made of skinned and pounded walnuts and wheat flour. Ones that are made in Cheonan, South Chungcheong Province, are called "Cheonan hodu-gwaja" and are a local specialty.',
+      'photo/4/Melomakarono.jpg|Melomakarono|The melomakarono (μελομακάρονο) is an egg-shaped Greek dessert made mainly from flour, olive oil, and honey. Along with the kourabies it is a traditional dessert prepared primarily during the Christmas holiday season.Historically, melomakarona are thought to be derived from the ancient and medieval makaria, which were eaten during funerals. Gradual changes in the recipe and the addition of dipping them in honey led to melomakarona which etymologically is derived from the Greek word for honey "meli" and "makaria".Typical ingredients of the melomakarono are flour or semolina, sugar, orange zest and/or fresh juice, cognac (or similar beverage), cinnamon and olive oil. During rolling they are often filled with ground walnuts',
+      'photo/4/Tufahije.jpg|Tufahije|Tufahije is a Bosnian dessert made of walnut-stuffed apples poached in sugar water. It is very popular in Bosnia and Herzegovina, Serbia, North Macedonia and Croatia.The Bulgarian pechani yabalki are also stuffed with walnuts, but are usually baked, not poached.',],
+
+      ['photo/45/sobiyet.jpg|Şöbiyet|Şöbiyet, Shaabiyat (شعيبيات) is a Turkish dessert similar to baklava. It is stuffed with a cream, which is made from milk and semolina, and also nuts (walnut or pistachio). It has a soft but crusty outside and creamy inside. ',],
+
+      ['photo/5/Eclairs.jpg|Éclair|An éclair is a pastry made with choux dough filled with a cream and topped with a flavored icing.',
+      'photo/5/Profiterole.jpg|Profiterole|A profiterole, cream puff (US), or chou à la crème (French) is a filled French choux pastry ball with a typically sweet and moist filling of whipped cream, custard, pastry cream, or ice cream. The puffs may be decorated or left plain or garnished with chocolate sauce, caramel, or a dusting of powdered sugar.',
+      'photo/5/Mochi.jpg|Mochi|Mochi (餅•もち) is a Japanese rice cake made of mochigome, a short-grain japonica glutinous rice, and sometimes other ingredients such as water, sugar, and cornstarch. The rice is pounded into paste and molded into the desired shape. While often eaten by itself, mochi is also commonly filled around small balls of ice cream',
+      'photo/5/BostonCream.jpg|Boston Cream|The Boston cream (pie) doughnut or donut is a round, solid, yeast-risen doughnut with chocolate frosting and a custard filling, resulting in a doughnut reminiscent of a miniature Boston cream pie.',
+      'photo/5/Twinkie.jpg|Twinkie|A Twinkie is an American snack cake, described as "golden sponge cake with a creamy filling". It was formerly made and distributed by Hostess Brands. The brand is currently owned by Hostess Brands, Inc., having been formerly owned by private equity firms Apollo Global Management and C. Dean Metropoulos and Company as the second incarnation of Hostess Brands. During bankruptcy proceedings, Twinkie production was suspended on January 21, 2011 and resumed after an absence of a few months from American store shelves, becoming available again nationwide on March 14, 2015.',],
+
+      ['photo/6/Chapssal.jpg|Chapssal|Chapssal doughnuts (찹쌀도넛) are Korean doughnuts made with glutinous rice flour. The mildly sweet doughnuts are often filled with sweetened red bean paste and coated with the mixture of sugar and cinnamon powder. Glutinous rice flour dough creates the crunchy outside texture and chewy inside texture.',
+      'photo/6/Samosa.jpg|Samosa|A samosa is a fried or baked pastry with a savory filling, including ingredients such as spiced potatoes, onions, and peas. It may take different forms, including triangular, cone, or half-moon shapes, depending on the region. Samosas are often accompanied by chutney, and have origins in medieval times or earlier. Samosas are a popular entrée, appetizer, or snack in the local cuisines of South Asia, the Middle East, Central Asia, East Africa and other regions. Due to emigration and cultural diffusion from these areas, samosas today are often prepared in other parts of the world. ',],
+
+    ];
+
 
     document.getElementById('select-bar').addEventListener('click', function (e) {
       if (e.target.classList.contains('select-bar-choice-active') || e.target.classList.contains('select-bar-choice-inactive')) {
         if (e.target.parentElement.classList.contains('disabled')) return;
         e.target.parentElement.classList.toggle('active');
-        updateDisable()
-        showResult()
+        updateDisable();
+        showResult();
       }
     })
 
@@ -183,7 +263,26 @@
     }
 
     function showResult() {
-      var choices = [...document.querySelectorAll('.select-bar-choice.active')];
+      var choices = [...document.querySelectorAll('.select-bar-choice')];
+      var selected = [], resultSets = [];
+      for (var i in choices) {
+        if (choices[i].classList.contains('active')) selected.push(Number(i));
+      }
+      for (var i in combinations) {
+        if (combinations[i].join() == selected.join()) {
+          resultSets = imgSets[i] || [];
+        }
+      }
+      [...document.querySelectorAll('.list')].forEach(el => el.remove());
+      for (var img of resultSets) {
+        var clone = listTemplate.content.cloneNode(true);
+        var parts = img.split('|');
+        clone.querySelector('img').src = parts[0];
+        clone.querySelector('h5').textContent = parts[1];
+        clone.querySelector('p.hidden-description').textContent = parts[2];
+        clone.querySelector('.list').addEventListener('click', e => e.currentTarget.classList.toggle('active'));
+        listWrapper.appendChild(clone);
+      }
     }
   </script>
 </body>

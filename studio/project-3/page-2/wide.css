@@ -20,25 +20,26 @@ body {
     float: left;
     width: 25%;
     margin-top: 3%;
-  
+    
 }
+
 div.img {
-    border: 1px solid rgb(155, 155, 155);
-    background-color: rgb(146, 146, 146);
+    border: 1px solid rgb(237, 209, 131);
+    background-color: #FFFAEF;
     margin-top: 15%;
 }
 
 div.img:hover {
-    border: 3px solid rgb(231, 180, 103);
+    border: 2px solid rgb(231, 180, 103);
 }
 
 div.img img {
-    width: 100%;
+    width: 360px;
     height: auto;
 }
 
 div.desc {
-    padding: 1%;
+    padding: 0%;
     text-align: center;
     background-color: #FFFAEF;
 }
@@ -53,6 +54,15 @@ div.desc {
 h5 {
     font-family: 'Palanquin Dark', sans-serif;
     font-size: 1.4rem;
+    color: rgba(227, 185, 135, 1);
+}
+
+p {
+    color: rgba(166, 133, 110, 1);
+    font-size: 0.8rem;
+    text-align: left;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
 }
 
 #select-bar {
