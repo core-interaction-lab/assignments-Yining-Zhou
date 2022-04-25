@@ -1,7 +1,39 @@
 body {
-    background-color: rgb(3, 65, 70);
+    background-color: rgb(4, 36, 38);
 }
 
 #album-container {
-    
+    color: rgb(173, 203, 196);
+    font-size: 24px;
+    max-width: 600px;
+    margin: auto;
+    font-family: 'Square Peg', cursive;
 }
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+.album {
+    box-shadow: 0 0 4px #000;
+    border-radius: 8px;
+    display: flex;
+    margin: 12px 0;
+    overflow: hidden;
+    padding: 20px;
+}
+.album>img {
+    width: 40%;
+    margin-right: 8px;
+}
+.album>div {
+    border-left: 1px solid #000;
+    flex: 1;
+    margin: 8px 0;
+    padding-left: 8px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Tapestry', cursive;
+    color: rgb(125, 145, 140)
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@500&family=Palette+Mosaic&family=Righteous&display=swap');
