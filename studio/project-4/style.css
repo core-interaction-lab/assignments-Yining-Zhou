@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+
+body {
+    background-color:rgb(0, 0, 0);
+}
+
+#title {
+    text-align: center;
+    margin-top: 12%;
+}
+
+#about {
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+#refresh {
+    margin-top: 25px;
+    margin-right: 30px;
+    display: none;
+}
+h1 {
+    color:rgba(255, 203, 18, 1);
+    font-family: Bayon;
+    font-size: 20px;
+}
+
+h2 {
+    color:rgba(255, 107, 0, 1);
+    font-family: Bayon;
+    font-size: 20px;
+}
+
+#txt {
+    width: 500px;
+    text-align: center;
+    padding-top: 70px;
+    border-top-color:transparent;
+    border-right-color:transparent;
+    border-bottom-color:rgb(255, 255, 255);
+    border-left-color:transparent;
+    border-top-width:1px;
+    border-right-width:1px;
+    border-bottom-width:1px;
+    border-left-width:1px;
+    border-top-style:solid;
+    border-right-style:solid;
+    border-bottom-style:solid;
+    border-left-style:solid;
+}
