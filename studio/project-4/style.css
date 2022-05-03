@@ -22,11 +22,16 @@ body {
 #refresh {
     margin-top: 25px;
     margin-right: 30px;
-    /* display: none; */
 }
 
 h1 {
     color: rgba(255, 203, 18, 1);
+    font-family: Bayon;
+    font-size: 20px;
+}
+
+h1:hover {
+    color: rgba(255, 107, 0, 1);
     font-family: Bayon;
     font-size: 20px;
 }
@@ -36,26 +41,16 @@ h2 {
     font-family: Bayon;
     font-size: 20px;
 }
+h2:hover {
+    color: rgba(255, 203, 18, 1);
+    font-family: Bayon;
+    font-size: 20px;
+}
 
 #txt {
     text-align: center;
     margin: 0 auto;
     margin-top: 50px;
-    /* width: 500px;
-    text-align: center;
-    padding-top: 70px;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: rgb(255, 255, 255);
-    border-left-color: transparent;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid; */
 }
 
 input {
@@ -67,4 +62,8 @@ input {
     color: #fff;
     outline-style: none;
     font-family: Bayon;
+}
+
+a:link,a:visited{
+    text-decoration:none;
 }

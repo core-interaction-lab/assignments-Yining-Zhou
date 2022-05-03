@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bayon&display=swap');
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+#content {
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+h1 {
+    color: rgb(254, 254, 0);
+    font-family: Bayon;
+    font-size: 50px;
+}
+
+h2 {
+    color: rgb(0, 254, 123);
+    font-family: Bayon;
+    font-size: 40px;
+}
+
+h3{
+    color: rgb(255, 255, 255);
+    font-family: Bayon;
+    font-size: 20px;
+}
+h4{
+    color: rgb(86, 247, 247);
+    font-family: Bayon;
+    font-size: 20px;
+}
+a:link,a:visited{
+    text-decoration:none;
+}
+
+h3:hover {
+    font-size: 30px;
+    color: rgb(188, 86, 247);;
+}
