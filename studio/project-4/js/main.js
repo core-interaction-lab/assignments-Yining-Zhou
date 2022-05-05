@@ -23,7 +23,7 @@ var blocks = [
       [4, 4, 4, 4],
       [0, 0, 0, 4],
     ],
-    
+
     [
       [4, 4, 4, 4],
       [4, 0, 0, 0],
@@ -46,7 +46,7 @@ var blocks = [
       [4, 0],
       [4, 0],
     ],
-    
+
     [
       [4, 0],
       [4, 0],
@@ -54,30 +54,24 @@ var blocks = [
       [4, 4],
     ],
 
+    [[5], [5], [5], [5]],
+
     [
-      [5],
-      [5],
-      [5],
-      [5],
+      [3, 0],
+      [3, 3],
+      [3, 0],
     ],
 
     [
-      [3,0],
-      [3,3],
-      [3,0],
-    ],
-
-    [
-      [0,3],
-      [3,3],
-      [0,3],
+      [0, 3],
+      [3, 3],
+      [0, 3],
     ],
 
     [
       [3, 3, 3],
       [0, 3, 0],
     ],
-
   ],
   currentBlocks = [];
 
@@ -126,10 +120,26 @@ function drawGround() {
 
 function setGround() {
   playGround = genArr(size, genArr(size, 0));
-  for (var i in currentBlocks) {
-    currentBlocks[i].pos[0] + currentBlocks[i].cells.length < size &&
-      currentBlocks[i].pos[0]++;
-    drawBlock(currentBlocks[i], playGround);
+  for (var block of currentBlocks) {
+    if (block.pos[0] + block.cells.length < size) {
+      var lowerEdge = block.cells[0].map((c, i) => {
+        for (var j = 0; j < block.cells.length; j++) {
+          if (block.cells[block.cells.length - 1 - j][i] > 0) return j;
+        }
+      });
+      var canDrop = true;
+      for (var i = 0; i < block.cells[0].length; i++) {
+        if (
+          playGround[block.pos[0] + block.cells.length - lowerEdge[i]] &&
+          playGround[block.pos[0] + block.cells.length - lowerEdge[i]][
+            block.pos[1] + i
+          ]
+        )
+          canDrop = false;
+      }
+      canDrop && block.pos[0]++;
+    }
+    drawBlock(block, playGround);
   }
 }
 
@@ -147,7 +157,7 @@ function drawBlock(block, playGround) {
 document.getElementById("txt-input").addEventListener("input", function () {
   var randomBlock = blocks[random(15)];
   var newBlock = {
-    pos: [-2, random(size + 1 - randomBlock[0].length)],
+    pos: [-randomBlock.length, random(size + 1 - randomBlock[0].length)],
     cells: randomBlock,
   };
   currentBlocks.push(newBlock);
