@@ -1,77 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>assignment 5</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css">
-    </head>
-    <body>
-        <h1>Make Your Card</h1>
-        <header>
-            <h2>What is your name?</h2>
-        </header>
-        <main class="content">
-            <section class="flex-col">
-                <div>
-                    <textarea id="todo-textarea"></textarea>
-                </div>
+  <head>
+    <title>assignment 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Make Your Card</h1>
+    <header>
+      <h2>What is your name?</h2>
+    </header>
+    <main class="content">
+      <section class="flex-col">
+        <div>
+          <textarea class="todo-textarea"></textarea>
+        </div>
+      </section>
+      <section class="flex-col">
+        <div class="todo-container"></div>
+      </section>
+    </main>
 
+    <header>
+      <h2>What is your zodic sign?</h2>
+    </header>
+    <main class="content">
+      <section class="flex-col">
+        <div>
+          <textarea class="todo-textarea"></textarea>
+        </div>
+      </section>
+      <section class="flex-col">
+        <div class="todo-container"></div>
+      </section>
+    </main>
 
-            </section> 
-            <section class="flex-col">
-                <div id="todo-container"></div>
-            </section>
-        </main>
-        
-        <header>
-            <h2>What is your zodic sign?</h2>
-        </header>
-        <main class="content">
-            <section class="flex-col">
-                <div>
-                    <textarea id="todo-textarea"></textarea>
-                </div>
+    <header>
+      <h2>What is your favourite color?</h2>
+    </header>
+    <main class="content">
+      <section class="flex-col">
+        <div>
+          <textarea class="todo-textarea"></textarea>
+        </div>
+      </section>
+      <section class="flex-col">
+        <div class="todo-container"></div>
+      </section>
+    </main>
 
+    <header>
+      <h2>What are your hobbies?</h2>
+    </header>
+    <main class="content">
+      <section class="flex-col">
+        <div>
+          <textarea class="todo-textarea"></textarea>
+        </div>
+        <button type="button" id="add-todo-btn">Create</button>
+      </section>
+      <section class="flex-col">
+        <div class="todo-container"></div>
+      </section>
+    </main>
 
-            </section> 
-            <section class="flex-col">
-                <div id="todo-container"></div>
-            </section>
-        </main>
-        
+    <div id="result">
+      <h1>Hi, <span class="result-answer"></span></h1>
+      <p>Zodic sign: <span class="result-answer"></span></p>
+      <p>favourite color: <span class="result-answer"></span></p>
+      <p>hobbies: <span class="result-answer"></span></p>
+    </div>
 
-        <header>
-            <h2>What is your favourite color?</h2>
-        </header>
-        <main class="content">
-            <section class="flex-col">
-                <div>
-                    <textarea id="todo-textarea"></textarea>
-                </div>
-        
-
-            </section> 
-            <section class="flex-col">
-                <div id="todo-container"></div>
-            </section>
-        </main>
-        
-        <header>
-            <h2>What are your hobbies?</h2>
-        </header>
-        <main class="content">
-            <section class="flex-col">
-                <div>
-                    <textarea id="todo-textarea"></textarea>
-                </div>
-                <button type="button" id="add-todo-btn">Create</button>
-
-            </section> 
-            <section class="flex-col">
-                <div id="todo-container"></div>
-            </section>
-        </main>
-
-        <script src="js/main.js"></script>
-    </body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
