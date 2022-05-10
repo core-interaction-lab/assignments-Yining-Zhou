@@ -120,6 +120,7 @@ function drawGround() {
 
 function setGround() {
   playGround = genArr(size, genArr(size, 0));
+  var blockToRemove = [];
   for (var block of currentBlocks) {
     if (block.pos[0] + block.cells.length < size) {
       var lowerEdge = block.cells[0].map((c, i) => {
@@ -134,13 +135,24 @@ function setGround() {
           playGround[block.pos[0] + block.cells.length - lowerEdge[i]][
             block.pos[1] + i
           ]
-        )
+        ) {
           canDrop = false;
+          if (
+            playGround[block.pos[0] + block.cells.length - lowerEdge[i]][
+              block.pos[1] + i
+            ] == block.cells[block.cells.length - lowerEdge[i] - 1][i]
+          ) {
+            blockToRemove.push(block);
+          }
+        }
       }
       canDrop && block.pos[0]++;
     }
     drawBlock(block, playGround);
   }
+  currentBlocks = currentBlocks.filter(
+    (block) => blockToRemove.indexOf(block) == -1
+  );
 }
 
 function drawBlock(block, playGround) {
