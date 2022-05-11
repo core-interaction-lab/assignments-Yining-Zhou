@@ -25,20 +25,20 @@ body {
   height: 100%;
 }
 #playground .cell-1 {
-  background-color: rgb(255, 157, 87);
+  background-color: rgb(223, 170, 132);
 }
 #playground .cell-2 {
-  background-color: rgb(141, 255, 141);
+  background-color: rgb(133, 201, 133);
 }
 #playground .cell-5 {
-  background-color: rgb(141, 255, 141);
+  background-color: rgb(133, 201, 133);
 }
 #playground .cell-3 {
-  background-color: rgb(99, 99, 244);
+  background-color: rgb(118, 118, 178);
 }
 
 #playground .cell-4 {
-  background-color: rgb(254, 167, 235);
+  background-color: rgb(212, 155, 191);
 }
 
 .box {
