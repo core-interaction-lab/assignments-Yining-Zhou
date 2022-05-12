@@ -37,11 +37,15 @@ body {
   background-color: rgb(254, 167, 235);
 }
 
+#playground .cell-4 {
+  background-color: rgb(226, 124, 124);
+}
+
 .boom {
   position: fixed;
-  width: 32px;
-  height: 32px;
-  animation: boom 3s ease-out;
+  width: 25px;
+  height: 25px;
+  animation: boom 1s ease-out;
 }
 @keyframes boom {
   to {
