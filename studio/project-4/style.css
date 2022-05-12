@@ -27,18 +27,18 @@ body {
   background-color: rgb(255, 157, 87);
 }
 #playground .cell-2 {
-  background-color: rgb(141, 255, 141);
+  background-color: rgb(178, 249, 178);
 }
 #playground .cell-3 {
   background-color: rgb(99, 99, 244);
 }
 
 #playground .cell-4 {
-  background-color: rgb(254, 167, 235);
+  background-color: rgb(255, 190, 199);
 }
 
-#playground .cell-4 {
-  background-color: rgb(226, 124, 124);
+#playground .cell-5 {
+  background-color: rgb(235, 230, 144);
 }
 
 .boom {
